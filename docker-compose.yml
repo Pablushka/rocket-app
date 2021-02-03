@@ -1,0 +1,20 @@
+version: '3.2'
+
+volumes:
+  db-data:
+    external: false
+
+services:
+  db:
+    environment:
+      MYSQL_ROOT_PASSWORD: secreto!
+      MYSQL_DATABASE: rocket_dev
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3306:3306
+    volumes:
+      - ../docker-dbs/rocket-data:/var/lib/mysql
+

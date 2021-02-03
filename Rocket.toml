@@ -1,0 +1,6 @@
+[global]
+address = "127.0.0.1"
+port = 8081
+
+[global.databases]
+rocket_app = { url = "mysql://rocket:secreto!@127.0.0.1:3306/rocket_dev" }
